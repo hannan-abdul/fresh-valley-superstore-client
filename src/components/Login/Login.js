@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
-import {UserContext} from '../../App'
+import {UserContext} from '../../App';
 import { useHistory, useLocation } from 'react-router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import './Login.css';
 
 if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
@@ -33,8 +36,8 @@ const Login = () => {
             });
     }
     return (
-        <div>
-            <button onClick={handleGoogleSignIn}>Google Sign In</button>
+        <div className="text-center login-fix">
+            <button className="inner-button-fix" onClick={handleGoogleSignIn}><FontAwesomeIcon icon={faGoogle} /> Google Sign In</button>
         </div>
     );
 };

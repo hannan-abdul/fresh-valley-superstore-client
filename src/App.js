@@ -13,6 +13,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
 import Deals from './components/Deals/Deals';
 import Orders from './components/Orders/Orders';
+import Navbar from './components/Navbar/Navbar';
 
 export const UserContext = createContext()
 
@@ -20,37 +21,20 @@ function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <p>Name: {loggedInUser.name}</p>
       <Router>
         <div>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/admin">Admin</Link>
-            </li>
-            <li>
-              <Link to="/deals">Deals</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link>{loggedInUser.name}</Link>
-            </li>
-          </ul>
+          <Navbar/>
           <hr />
           <Switch>
             <Route exact path="/">
               <Home />
             </Route>
-            <Route path="/orders/:productKey">
+            <PrivateRoute path="/orders/:productKey">
               <Orders />
-            </Route>
-            <Route path="/admin">
+            </PrivateRoute>
+            <PrivateRoute path="/admin">
               <Admin />
-            </Route>
+            </PrivateRoute>
             <Route path="/deals">
               <Deals />
             </Route>

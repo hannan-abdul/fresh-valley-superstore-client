@@ -5,12 +5,6 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [cart, setCart] = useState([]);
 
-    // const handleAddProduct = (product) => {
-    //     console.log('product added', product._id);
-    //     const newCart = [...cart, product];
-    //     setCart(newCart);
-    // }
-
     useEffect(() => {
         fetch('http://localhost:5000/products')
             .then(res => res.json())
@@ -19,10 +13,10 @@ const Home = () => {
 
     return (
         <div className="container">
-            <div className="row">
+            <div className="row justify-content-center text-center">
                 {
-                    products.length === 0 && <div class="spinner-border text-primary" role="status">
-                        <span class="visually-hidden">Loading...</span>
+                    products.length === 0 && <div className="spinner-border text-primary" role="status">
+                        <span class="visually-hidden"></span>
                     </div>
                 }
                 {
