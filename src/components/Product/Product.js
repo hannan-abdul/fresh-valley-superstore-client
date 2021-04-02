@@ -7,7 +7,7 @@ const Product = (props) => {
     const { imageURL, name, weight, price, _id } = props.product;
 
     return (
-        <div className="col-md-3 card product-container">
+        <div className="col-md-4 col-lg-3 col-8 card product-container">
             <img src={imageURL} alt="pic" />
             <h3>{name}</h3>
             <p>{weight}</p>

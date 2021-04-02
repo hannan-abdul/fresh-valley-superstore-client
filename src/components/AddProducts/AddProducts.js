@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import './AddProducts.css';
 
 const AddProducts = () => {
     const { register, handleSubmit, watch, errors } = useForm();
@@ -41,8 +42,8 @@ const AddProducts = () => {
 
     }
     return (
-        <div>
-            <h2>add products here</h2>
+        <div className="text-center">
+            <h2>Add New Products</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <input name="name" placeholder="Product Name" ref={register} />
                 <br />
