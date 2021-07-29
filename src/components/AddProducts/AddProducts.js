@@ -13,7 +13,7 @@ const AddProducts = () => {
             price: data.price,
             imageURL: imageURL
         };
-        const url = `http://localhost:5000/addProduct`;
+        const url = `https://morning-reef-31181.herokuapp.com/addProduct`;
         console.log(productData)
         fetch(url, {
             method: 'POST',
